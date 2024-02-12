@@ -1,3 +1,5 @@
+// parameterised : initialize an object with specified value
+
 #include <iostream>
 using namespace std;
 
