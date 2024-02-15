@@ -10,7 +10,7 @@ class A
 public:
     void print()
     {
-        cout << "Hello!!" << endl;
+        cout << "Hello A" << endl;
     }
 };
 
@@ -20,7 +20,7 @@ class B
 public:
     void print()
     {
-        cout << "Hey" << endl;
+        cout << "Hey B" << endl;
     }
 };
 

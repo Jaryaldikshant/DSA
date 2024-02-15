@@ -70,6 +70,7 @@ int main()
     // Ram.print();
 
     Hero *h1 = new Hero(11);
+    
     // it will also print some garbage value
     // h1->print();
 
