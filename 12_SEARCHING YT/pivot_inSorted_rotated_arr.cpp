@@ -21,12 +21,13 @@ int getPivot(int arr[], int size)
         mid = s + ((e - s) / 2);
     }
     return arr[s];
+    // return s;
 }
 
 int main()
 {
-    int arr[] = {1, 3, 5, 6, 6, 7};
+    int arr[] = {6, 7, 8, 1, 2, 3, 4, 5};
 
-    cout << "Pivot element: " << getPivot(arr, 6) << endl;
+    cout << "Pivot element: " << getPivot(arr, 8) << endl;
     return 0;
 }
