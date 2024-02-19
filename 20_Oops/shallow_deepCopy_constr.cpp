@@ -8,6 +8,8 @@
 
 
 
+// In "SHALLOW" copy, the modification done on one array affects the other array. In "DEEP" copy, the modification done on one array does not affect the other array.
+
 #include <iostream>
 #include<string.h>
 using  namespace std;
