@@ -3,8 +3,8 @@
 using namespace std;
 int main()
 {
-    int arr[] = {-51, 84, 0, 74, -69};
-    int size = 5;
+    int arr[] = {4, 7, 8, 6, 7, 6 };
+    int size = 6;
     // initialize  the max variable with the minimum posssible integer value
     int max = INT_MIN;
     // initialize  the min variable with the maximum posssible integer value
