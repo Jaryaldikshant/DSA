@@ -4,6 +4,7 @@ using namespace std;
 bool isPossible(int arr[], int key, int size, int mid)
 {
     int painterCount = 1;
+    
     int paintSum = 0;
 
     for (int i = 0; i < size; i++)
