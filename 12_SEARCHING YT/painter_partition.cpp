@@ -23,8 +23,8 @@ bool isPossible(int arr[], int key, int size, int mid)
             paintSum = arr[i];
         }
     }
-        return true;
-    }
+    return true;
+}
 
 int painterPart(int arr[], int key, int size)
 {
@@ -58,14 +58,10 @@ int painterPart(int arr[], int key, int size)
 }
 int main()
 {
-    int arr[] = {10, 20, 30, 40};
+    int arr[] = {5, 5, 5, 5};
     int size = 4;
     int key = 2;
     int ans = painterPart(arr, key, size);
     cout << ans << endl;
     return 0;
 }
-
-
-
-

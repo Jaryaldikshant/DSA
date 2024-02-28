@@ -43,21 +43,26 @@ void print(Node *head)
 
 Node *removeK(Node *head, int val)
 {
-    if(head == NULL) return head;
+    if (head == NULL)
+        return head;
 
-    if(head->data == val){
-        Node* temp = head;
+    if (head->data == val)
+    {
+        Node *temp = head;
         head = head->next;
-        delete(temp);
+        delete (temp);
         return head;
     }
 
-    Node* temp = head;
-    Node* prev = NULL;
+    Node *temp = head;
+    Node *prev = NULL;
 
-    while( temp != NULL){
-        if(temp->data == val){
+    while (temp != NULL)
+    {
+        if (temp->data == val)
+        {
             prev->next = prev->next->next;
+            temp->next = nullptr;
             delete temp;
             break;
         }
@@ -71,7 +76,7 @@ int main()
     vector<int> arr = {12, 6, 2, 9};
     Node *head = convertLink(arr);
 
-    head = removeK(head,6);
+    head = removeK(head, 9);
     print(head);
     return 0;
 }

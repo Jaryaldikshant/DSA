@@ -32,7 +32,7 @@ void insertLink(int data, Node *&head, int pos)
     Node *add = new Node(data);
 
     // if position is zero means you have insert in at head, we will store the addrss of head in add(next) and change the head to newhead which is add
-    if (pos == 0)
+    if (pos == 1)
     {
         add->next = head;
         head = add;
@@ -53,7 +53,7 @@ void insertLink(int data, Node *&head, int pos)
 void deleteLink(Node *&head, int pos)
 {
 
-    if (pos == 0)
+    if (pos == 1)
     {
         Node *temp = head;
         head = head->next;
@@ -97,7 +97,7 @@ int main()
 
     // this function is used for inserting Node at given position (here 50 is the node and 2 is the position)
 
-    insertLink(10, head, 3);
+    insertLink(10, head, 1);
     cout << "Inserting in Linked list:  ";
     TraverseLink(head);
     cout << endl
