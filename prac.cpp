@@ -4,38 +4,6 @@ using namespace std;
 
 class node
 {
-
-private:
-    node *getMid(node *head)
-    {
-        node *slow = head;
-        node *fast = head->next;
-
-        while (fast != nullptr && fast->next != nullptr)
-        {
-            fast = fast->next->next;
-            slow = slow->next;
-        }
-
-        return slow;
-    }
-
-    node *reverseLink(node *head)
-    {
-
-        node *curr = head;
-        node *prev = nullptr;
-        node *next = nullptr;
-
-        while (curr != NULL)
-        {
-            next = curr->next;
-            prev = curr;
-            curr = next;
-        }
-        return prev;
-    }
-
 public:
     int data;
     node *next;
@@ -45,44 +13,40 @@ public:
         this->data = d;
         this->next = NULL;
     }
-
-    bool isPalindrome(node *head)
-    {
-
-        if (head == nullptr || head->next == NULL)
-        {
-            return false;
-        }
-
-        // find mid
-        node *mid = getMid(head);
-
-        // reverse link
-        node *temp = mid->next;
-        mid->next = reverseLink(temp);
-
-        // compare both
-        node *head1 = head;
-        node *head2 = mid->next;
-
-        while (head2 != NULL)
-        {
-            if (head1->data != head2->data)
-            {
-                return false;
-            }
-
-            head1 = head1->next;
-            head2 = head2->next;
-        }
-
-
-        temp = mid->next;
-        mid->next = reverseLink(head);
-
-        return true;
-    }
 };
+
+node* deleteNode(node *&head, int val)
+{
+    // node *temp = new node(val);
+    node *curr = head;
+    node*prev = nullptr;
+
+
+    if(head == nullptr){
+        return head;
+    }
+
+    if(head->data == val){
+        node* temp = head;
+        head  = temp->next;
+        delete (temp);
+        return head;
+    }
+
+
+    while (curr != NULL)
+    {
+        if(curr->data == val){
+            prev->next = curr->next;
+            curr->next = nullptr;
+            delete (curr);
+            break;
+    }
+    prev = curr;
+    curr = curr->next;
+    }
+    return head;
+}
 
 void display(node *&head)
 {
@@ -97,24 +61,25 @@ void display(node *&head)
 int main()
 {
 
-    node *head = new node(1);
-    node *n2 = new node(2);
-    node *n3 = new node(3);
-    node *n4 = new node(3);
-    node *n5 = new node(2);
-    node *n6 = new node(1);
+    node *head = new node(5);
+    node *n2 = new node(6);
+    node *n3 = new node(1);
+    node *n4 = new node(9);
+    // node *n5 = new node(4);
 
     head->next = n2;
     n2->next = n3;
     n3->next = n4;
-    n4->next = n5;
-    n5->next = n6;
-    n6->next = nullptr;
+    n4->next = nullptr;
+    // n5->next = NULL;
 
+    cout << "Before Deleting: ";
     display(head);
     cout << endl;
 
-    cout << head->isPalindrome(head) << endl;
+    deleteNode(head, 1);
+    cout << "After Deleting: ";
+    display(head);
 
     return 0;
 }
