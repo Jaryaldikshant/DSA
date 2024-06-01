@@ -26,12 +26,14 @@ node *buildTree(node *root)
     int data;
     cin >> data;
 
-    root = new node(data);
+   
 
     if (data == -1)
     {
         return NULL;
     }
+
+     root = new node(data);
 
     cout << "Enter data for Left of " << data << endl;
     root->left = buildTree(root->left);

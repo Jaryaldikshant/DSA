@@ -36,7 +36,6 @@ node *buildTree(node *root)
 
 vector<int> topView(node *root)
 {
-
     // base case
     vector<int> ans;
     if (root == nullptr)

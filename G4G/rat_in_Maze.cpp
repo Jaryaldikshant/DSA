@@ -126,3 +126,102 @@
 //         return ans;
 //     }
 // };
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+bool isSafe(int newx, int newy, vector<vector<bool>> &vis, vector<vector<int>> &arr, int n)
+{
+    if ((newx >= 0 && newx < n) && (newy >= 0 && newy < n) && (vis[newx][newy] == false) && (arr[newx][newy] == 1))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void solve(int x, int y, vector<vector<int>> &arr, int n, vector<string> &ans, vector<vector<bool>> &vis, string path)
+{
+    // base case
+    if (x == n - 1 && y == n - 1)
+    {
+        ans.push_back(path);
+        return;
+    }
+
+    // 4 Movement are there D, L, R, U
+    vis[x][y] = true; // Corrected from `==` to `=`
+
+    // if Down
+    if (isSafe(x + 1, y, vis, arr, n))
+    {
+        solve(x + 1, y, arr, n, ans, vis, path + 'D');
+    }
+
+    // if Left
+    if (isSafe(x, y - 1, vis, arr, n))
+    {
+        solve(x, y - 1, arr, n, ans, vis, path + 'L');
+    }
+
+    // if Right
+    if (isSafe(x, y + 1, vis, arr, n))
+    {
+        solve(x, y + 1, arr, n, ans, vis, path + 'R');
+    }
+
+    // if Up
+    if (isSafe(x - 1, y, vis, arr, n))
+    {
+        solve(x - 1, y, arr, n, ans, vis, path + 'U');
+    }
+
+    vis[x][y] = false; // Corrected from `= 0` to `= false`
+}
+
+vector<string> searchMaze(vector<vector<int>> &arr, int n)
+{
+    // for storing the answer
+    vector<string> ans;
+
+    // array to check the visited path
+    vector<vector<bool>> visited(n, vector<bool>(n, false));
+
+    // empty string path
+    string path = "";
+
+    // if starting position is 0
+    if (arr[0][0] == 0)
+    {
+        return ans;
+    }
+
+    // function call
+    solve(0, 0, arr, n, ans, visited, path);
+
+    return ans;
+}
+
+int main()
+{
+    // Example usage
+    vector<vector<int>> maze = {
+        {1, 0, 0, 0},
+        {1, 1, 0, 1},
+        {0, 1, 0, 0},
+        {1, 1, 1, 1}};
+
+    int n = maze.size();
+    vector<string> paths = searchMaze(maze, n);
+
+    for (const string &path : paths)
+    {
+        cout << path << endl;
+    }
+
+    return 0;
+}

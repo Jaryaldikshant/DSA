@@ -23,45 +23,30 @@ bool validPranthesis(string &str)
         else
         {
 
-            if (!s.empty())
-            {
-                char top = s.top();
-
-                if (ch == ')' && top == '(' ||
-                    ch == '}' && top == '{' ||
-                    ch == ']' && top == '[')
-                {
-                    s.pop();
-                }
-
-                else
-                {
-                    return false;
-                }
-            }
-
-            else
+            if (s.empty())
             {
                 return false;
             }
+
+            char top = s.top();
+
+            if (ch == ')' && top != '(' ||
+                ch == '}' && top != '{' ||
+                ch == ']' && top != '[')
+            {
+                return false;
+            }
+
+            s.pop();
         }
     }
-
-    if (s.empty())
-    {
-        return true;
-    }
-
-    else
-    {
-        return false;
-    }
+    return s.empty();
 }
 
 int main()
 {
 
-    string str = "[({})]";
+    string str = "{[()]}";
 
     if (validPranthesis(str))
     {
