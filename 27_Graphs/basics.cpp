@@ -1,72 +1,64 @@
-// Implemetation of Graphs using Adjacency List
-
+// Online C++ compiler to run C++ program online
 #include <iostream>
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
-class graph
-{
-
-public:
-    unordered_map<int, list<int>> adj;
-
-    void addEdge(int u, int v, bool direction)
-    {
-
-        // direction = 0; Undirected Graph
-        // direction = 1; Directed Graph
-
-        // create an edge from u to v
-
-        adj[u].push_back(v);
-
-        if (direction == 0)
-        {
-            adj[v].push_back(u);
+class graph{
+    
+    public:
+    unordered_map<int,list<int>> adj;
+    
+    void addEdge(int edg1, int edg2, bool direct){
+        
+        // direction = 0 -> undirected graph
+        
+        // direction = 1 -> directed graph
+        
+        
+        // create an edge from eg1 to edg2
+        adj[edg1].push_back(edg2);
+        
+        if(direct == 0){
+            adj[edg2].push_back(edg1);
         }
     }
-
-    void printAdjList()
-    {
-        for (auto i : adj)
-        {
-            cout << i.first << "-> ";
-            for (auto j : i.second)
-            {
-                cout << j << ", ";
+    
+    void Print(){
+        
+        for(auto i: adj){
+            cout<<i.first<<" -> ";
+            for(auto j: i.second){
+                cout<<j<<", ";
             }
-            cout << endl;
+            cout<<endl;
         }
     }
+    
 };
 
-int main()
-{
-
+int main() {
+    
     int n;
-    cout << "Enter no. of Nodes: ";
-    cin >> n;
-
-    cout << endl;
+    cout<<"Enter the number of Nodes: ";
+    cin>>n;
+    
     int m;
-    cout << "Enter no. of Edges: ";
-    cin >> m;
-
+    cout<<"Enter the number of Edges: ";
+    cin>>m;
+    
     graph g;
-
-    for (int i = 0; i < m; i++)
-    {
-        int u, v;
-        cin >> u >> v;
-
-        // creating an undirected graph
-        g.addEdge(u, v, 0);
+    
+    for(int i = 0 ; i<m; i++){
+        int edg1,edg2;
+        cin>>edg1>>edg2;
+        
+        // creating undirected graph
+        g.addEdge(edg1,edg2,0);
     }
-
-    cout << endl;
-
-// printing Graph
-    g.printAdjList();
+    
+    
+    g.Print();
+   
 
     return 0;
 }

@@ -18,8 +18,8 @@ void col_wiseSum(int arr[3][3], int row, int col)
 int main()
 {
     int arr[3][3];
-    int row = 3;
-    int col = 3;
+    int row = 2;
+    int col = 2;
 
     cout << "Enter the elements in array: " << endl;
     for (int i = 0; i < row; i++)
@@ -29,7 +29,7 @@ int main()
             cin >> arr[i][j];
         }
     }
-    cout<<endl;
+    cout << endl;
 
     col_wiseSum(arr, row, col);
 

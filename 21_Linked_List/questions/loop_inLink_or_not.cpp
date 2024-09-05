@@ -259,8 +259,7 @@ int main()
 
     cout << "Starting point of loop is: " << getStart(head)->data << endl;
 
-
-// removing loop
+    // removing loop
     removeLoop(head);
 
     cout << endl;

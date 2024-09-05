@@ -40,10 +40,16 @@ node *buildTree(node *root)
 
     cout << "Enter data for Right of " << data << endl;
     root->right = buildTree(root->right);
+
+    return root;
 }
 
 void levelorderTraversal(node *root)
 {
+
+    if(root == NULL){
+        return;
+    }
 
     queue<node *> q;
     q.push(root);
